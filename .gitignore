@@ -1,0 +1,5 @@
+images/
+yolo_dataset/
+nordic_training/
+runs/
+*.pt

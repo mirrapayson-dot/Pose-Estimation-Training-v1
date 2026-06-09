@@ -1,0 +1,38 @@
+path: ./yolo_dataset
+train: images/train
+val:   images/val
+
+nc: 1
+names: ["nordic_skier"]
+
+# 23 total keypoints: 15 person + 4 poles + 4 rollerskis
+kpt_shape: [23, 3]
+
+skeleton:
+  # Person body
+  - [0, 1]    # top_head → left_shoulder
+  - [0, 2]    # top_head → right_shoulder
+  - [1, 2]    # left_shoulder → right_shoulder
+  - [1, 3]    # left_shoulder → left_elbow
+  - [3, 5]    # left_elbow → left_wrist
+  - [2, 4]    # right_shoulder → right_elbow
+  - [4, 6]    # right_elbow → right_wrist
+  - [1, 7]    # left_shoulder → left_hip
+  - [2, 8]    # right_shoulder → right_hip
+  - [7, 8]    # left_hip → right_hip
+  - [7, 9]    # left_hip → left_knee
+  - [9, 11]   # left_knee → left_ankle
+  - [11, 13]  # left_ankle → left_front_foot
+  - [8, 10]   # right_hip → right_knee
+  - [10, 12]  # right_knee → right_ankle
+  - [12, 14]  # right_ankle → right_front_foot
+  # Poles
+  - [15, 16]  # left_grip → left_tip
+  - [17, 18]  # right_grip → right_tip
+  - [5, 15]   # left_wrist → left_grip
+  - [6, 17]   # right_wrist → right_grip
+  # Rollerskis
+  - [19, 20]  # left_rear → left_front
+  - [21, 22]  # right_rear → right_front
+  - [11, 19]  # left_ankle → left_rear
+  - [12, 21]  # right_ankle → right_rear
